@@ -1,0 +1,18 @@
+.root {
+    -fx-background-color: #1D2025;
+}
+
+#header {
+    -fx-background-color: #333B45;
+}
+
+#header .label {
+    -fx-text-fill: #E3E4E3;
+    -fx-font-size: 20px;
+}
+
+
+// font - #E3E4E3
+// primary - #1D2025
+// secondary - #333B45
+// contrast - #EFC9A4
