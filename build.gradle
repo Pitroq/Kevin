@@ -26,7 +26,7 @@ tasks.withType(JavaCompile) {
 
 application {
   mainModule = 'com.pitroq.kevin'
-  mainClass = 'com.pitroq.kevin.HelloApplication'
+  mainClass = 'com.pitroq.kevin.Main'
 }
 
 javafx {
@@ -35,7 +35,7 @@ javafx {
 }
 
 dependencies {
-
+  implementation 'com.google.code.gson:gson:2.10.1'
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
@@ -54,3 +54,4 @@ jlink {
 jlinkZip {
   group = 'distribution'
 }
+

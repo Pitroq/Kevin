@@ -1,18 +1,31 @@
+* {
+    -fx-primary-background-color: #1D2025;
+    -fx-secondary-background-color: #333B45;
+    -fx-font-color: #E3E4E3;
+    -fx-contrast-color: #EFC9A4;
+}
 .root {
-    -fx-background-color: #1D2025;
+    -fx-background-color: -fx-primary-background-color;
 }
 
 #header {
-    -fx-background-color: #333B45;
+    -fx-background-color: -fx-secondary-background-color;
 }
 
 #header .label {
-    -fx-text-fill: #E3E4E3;
+    -fx-text-fill: -fx-font-color;
     -fx-font-size: 20px;
 }
 
+#footer {
+    -fx-background-color: -fx-secondary-background-color;
+}
 
-// font - #E3E4E3
-// primary - #1D2025
-// secondary - #333B45
-// contrast - #EFC9A4
+#footer .label {
+    -fx-text-fill: #626469;
+    -fx-font-size: 14px;
+}
+
+#header .headerLogoLabel {
+    -fx-font-size: 38px;
+}

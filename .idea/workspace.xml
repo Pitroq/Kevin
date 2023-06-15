@@ -15,6 +15,13 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="2RCxr40mbEJtpBOYQDl2dnJMBvX" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -24,7 +31,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "settings.editor.selected.configurable": "editor.preferences.import"
   }
 }]]></component>
   <component name="RunManager">

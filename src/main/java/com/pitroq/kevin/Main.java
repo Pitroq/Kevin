@@ -14,8 +14,10 @@ public class Main extends Application {
         String css = getClass().getResource("styles/style.css").toExternalForm();
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().setAll(css);
-        stage.setTitle("K.E.V.I.N.");
+
         stage.setScene(scene);
+        stage.setResizable(false);
+        stage.setTitle("K.E.V.I.N.");
         stage.show();
     }
 

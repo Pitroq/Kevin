@@ -13,15 +13,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-
 public class MainPanelController implements Initializable {
     @FXML
-    Label dateTimeLabel;
+    private Label dateTimeLabel;
+    private final Config config = new Config();
+    @FXML
+    private Label welcomeLabel;
+
 
     private void initClock() {
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, actionEvent -> {
             Date date = new Date(System.currentTimeMillis());
-            dateTimeLabel.setText(new SimpleDateFormat("HH:mm:ss EEEE dd.MM.yyyy").format(date));
+            dateTimeLabel.setText(new SimpleDateFormat(config.get("dateFormat")).format(date));
         }), new KeyFrame(Duration.seconds(1)));
 
         clock.setCycleCount(-1);
@@ -30,8 +33,7 @@ public class MainPanelController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        welcomeLabel.setText("Welcome " + config.get("username"));
         initClock();
     }
 }
-// TODO: create setting class which get settings from json (like Python Kevin)
-// TODO: in json data store data: username, date format
