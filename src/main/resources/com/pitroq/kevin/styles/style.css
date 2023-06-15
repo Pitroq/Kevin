@@ -17,6 +17,15 @@
     -fx-font-size: 20px;
 }
 
+#header .headerLogoLabel {
+    -fx-font-size: 38px;
+}
+
+.item {
+    -fx-background-color: #f22;
+}
+
+
 #footer {
     -fx-background-color: -fx-secondary-background-color;
 }
@@ -26,6 +35,3 @@
     -fx-font-size: 14px;
 }
 
-#header .headerLogoLabel {
-    -fx-font-size: 38px;
-}

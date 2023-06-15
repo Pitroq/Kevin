@@ -1,6 +1,5 @@
 package com.pitroq.kevin;
 
-
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
@@ -33,7 +32,7 @@ public class MainPanelController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        welcomeLabel.setText("Welcome " + config.get("username"));
+        welcomeLabel.setText("Welcome " + config.get("username") + "!");
         initClock();
     }
 }

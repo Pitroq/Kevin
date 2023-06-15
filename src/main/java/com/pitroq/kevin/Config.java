@@ -1,6 +1,8 @@
 package com.pitroq.kevin;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.File;
@@ -22,6 +24,7 @@ public class Config {
     Config() {
         if (!file.exists()) {
             createDirAndFile();
+            fillFile();
         }
         else if (file.length() == 0) {
             fillFile();
@@ -38,8 +41,7 @@ public class Config {
                 if (ch != -1) destinationConfigFileStream.write(ch);
             }
             while (ch != -1);
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -51,20 +53,33 @@ public class Config {
                 Files.createDirectory(dirPath);
             }
             file.createNewFile();
-            fillFile();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private boolean isJsonValid(String json) {
+        try {
+            JsonParser.parseString(json);
+        }
+        catch (JsonSyntaxException e) {
+            return false;
+        }
+        return true;
     }
 
     private void load() {
         String fileContent;
         try {
             fileContent = new String(Files.readAllBytes(Paths.get(FILE_PATH)));
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException();
+        }
+
+        if (!isJsonValid(fileContent)) {
+            fillFile();
+            load();
+            return;
         }
 
         map = new Gson().fromJson(fileContent, new TypeToken<Map<String, String>>() {}.getType());
