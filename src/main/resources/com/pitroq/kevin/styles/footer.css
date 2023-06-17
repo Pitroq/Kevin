@@ -1,0 +1,8 @@
+#footer {
+    -fx-background-color: -fx-secondary-background-color;
+}
+
+#footer .label {
+    -fx-text-fill: #626469;
+    -fx-font-size: 14px;
+}

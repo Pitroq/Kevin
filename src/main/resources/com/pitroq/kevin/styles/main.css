@@ -1,0 +1,9 @@
+* {
+    -fx-primary-background-color: #1D2025;
+    -fx-secondary-background-color: #333B45;
+    -fx-font-color: #E3E4E3;
+    -fx-contrast-color: #EFC9A4;
+}
+.root {
+    -fx-background-color: -fx-primary-background-color;
+}

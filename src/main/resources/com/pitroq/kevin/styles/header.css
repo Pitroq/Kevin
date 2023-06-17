@@ -1,0 +1,12 @@
+#header {
+    -fx-background-color: -fx-secondary-background-color;
+}
+
+#header .label {
+    -fx-text-fill: -fx-font-color;
+    -fx-font-size: 20px;
+}
+
+#header .headerLogoLabel {
+    -fx-font-size: 38px;
+}

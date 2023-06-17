@@ -14,7 +14,8 @@ public class Main extends Application {
     public static void showPane(String fileName) {
         try {
             mainPane.setCenter(FXMLLoader.load(Main.class.getResource("layouts/" + fileName + "-view.fxml")));
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -29,7 +30,7 @@ public class Main extends Application {
         mainPane.setBottom(FXMLLoader.load(getClass().getResource("layouts/footer-view.fxml")));
 
         Scene scene = new Scene(mainPane);
-        scene.getStylesheets().setAll(getClass().getResource("styles/style.css").toExternalForm());
+        scene.getStylesheets().setAll(getClass().getResource("styles/main.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }
