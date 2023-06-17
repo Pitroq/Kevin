@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+
+<FlowPane hgap="45.0" vgap="60.0" BorderPane.alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pitroq.kevin.MenuController">
+   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="item">
+      <Button layoutX="74.0" layoutY="50.0" mnemonicParsing="false" onAction="#showConfig" text="Config"/>
+   </Pane>
+   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="item" />
+   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="item" />
+   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="item" />
+   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="item" />
+   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="item" />
+   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="item" />
+   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="item" />
+   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="item" />
+   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="item" />
+   <BorderPane.margin>
+      <Insets />
+   </BorderPane.margin>
+   <padding>
+      <Insets bottom="55.0" left="50.0" right="50.0" top="55.0" />
+   </padding>
+</FlowPane>

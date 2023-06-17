@@ -32,6 +32,16 @@ public class Config {
         load();
     }
 
+    private boolean isJsonValid(String json) {
+        try {
+            JsonParser.parseString(json);
+        }
+        catch (JsonSyntaxException e) {
+            return false;
+        }
+        return true;
+    }
+
     private void fillFile() {
         InputStream defaultConfigFileStream = getClass().getResourceAsStream("data/defaultConfig.json");
         try (FileOutputStream destinationConfigFileStream = new FileOutputStream(FILE_PATH)) {
@@ -41,7 +51,9 @@ public class Config {
                 if (ch != -1) destinationConfigFileStream.write(ch);
             }
             while (ch != -1);
-        } catch (IOException e) {
+            defaultConfigFileStream.close();
+        }
+        catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -53,33 +65,30 @@ public class Config {
                 Files.createDirectory(dirPath);
             }
             file.createNewFile();
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private boolean isJsonValid(String json) {
-        try {
-            JsonParser.parseString(json);
-        }
-        catch (JsonSyntaxException e) {
-            return false;
-        }
-        return true;
-    }
-
     private void load() {
         String fileContent;
+
         try {
             fileContent = new String(Files.readAllBytes(Paths.get(FILE_PATH)));
-        } catch (IOException e) {
-            throw new RuntimeException();
         }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
         if (!isJsonValid(fileContent)) {
             fillFile();
             load();
             return;
+            // this code reset file if have problems (f.e. lack of bracket)
+            // TODO do warning with question "you have mistake in your settings. do you want to reset settings to default?"
+            // TODO so create class which print excpetions
         }
 
         map = new Gson().fromJson(fileContent, new TypeToken<Map<String, String>>() {}.getType());
