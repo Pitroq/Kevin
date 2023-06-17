@@ -1,29 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-
-<FlowPane hgap="45.0" vgap="60.0" BorderPane.alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pitroq.kevin.MenuController" stylesheets="@../styles/menu.css">
-   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="item">
-      <Button layoutX="74.0" layoutY="50.0" mnemonicParsing="false" onAction="#showConfig" text="Config"/>
+<FlowPane hgap="45.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="1280.0" stylesheets="@../styles/menu.css" vgap="60.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pitroq.kevin.MenuController">
+   <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #3F88C5;" styleClass="menu-item">
+      <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="50.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../img/notepad_icon.png" />
+      </ImageView>
+      <Label alignment="CENTER" layoutY="155.0" prefHeight="45.0" prefWidth="200.0" styleClass="menu-item-name" text="Notepad" textAlignment="CENTER" />
    </Pane>
-   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="item" />
-   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="item" />
-   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="item" />
-   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="item" />
-   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="item" />
-   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="item" />
-   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="item" />
-   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="item" />
-   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="item" />
-   <BorderPane.margin>
-      <Insets />
-   </BorderPane.margin>
+   <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #BD1B2B;" styleClass="menu-item">
+      <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="50.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../img/browser_icon.png" />
+      </ImageView>
+      <Label alignment="CENTER" layoutY="155.0" prefHeight="45.0" prefWidth="200.0" styleClass="menu-item-name" text="Private Browser" textAlignment="CENTER" />
+   </Pane>
+   <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #6F66D8;" styleClass="menu-item">
+      <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="50.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../img/clock_icon.png" />
+      </ImageView>
+      <Label alignment="CENTER" layoutY="155.0" prefHeight="45.0" prefWidth="200.0" styleClass="menu-item-name" text="Timer" textAlignment="CENTER" />
+   </Pane>
+   <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #7D98A1;" styleClass="menu-item">
+      <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="50.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../img/terminal_icon.png" />
+      </ImageView>
+      <Label alignment="CENTER" layoutY="155.0" prefHeight="45.0" prefWidth="200.0" styleClass="menu-item-name" text="Commands" textAlignment="CENTER" />
+   </Pane>
+   <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #958A82;" styleClass="menu-item">
+      <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="50.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../img/tasks_icon2.png" />
+      </ImageView>
+      <Label alignment="CENTER" layoutY="155.0" prefHeight="45.0" prefWidth="200.0" styleClass="menu-item-name" text="Tasks" textAlignment="CENTER" />
+   </Pane>
+   <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #71A559;" styleClass="menu-item">
+      <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="50.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../img/graph_icon.png" />
+      </ImageView>
+      <Label alignment="CENTER" layoutY="155.0" prefHeight="45.0" prefWidth="200.0" styleClass="menu-item-name" text="Graphs" textAlignment="CENTER" />
+   </Pane>
+   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="menu-item" />
+   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="menu-item" />
+   <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2B3C4C;" styleClass="menu-item">
+      <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="50.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../img/lock_icon.png" />
+      </ImageView>
+      <Label alignment="CENTER" layoutY="155.0" prefHeight="45.0" prefWidth="200.0" styleClass="menu-item-name" text="Lock PC" textAlignment="CENTER" />
+   </Pane>
+   <Pane onMouseClicked="#showConfigPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #B88B67" styleClass="menu-item">
+      <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="50.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../img/settings_icon.png" />
+      </ImageView>
+      <Label alignment="CENTER" layoutY="155.0" prefHeight="45.0" prefWidth="200.0" styleClass="menu-item-name" text="Settings" textAlignment="CENTER" />
+   </Pane>
    <padding>
       <Insets bottom="55.0" left="50.0" right="50.0" top="55.0" />
    </padding>
 </FlowPane>
+<!--#C4AF9A-->

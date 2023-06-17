@@ -1,7 +1,7 @@
 package com.pitroq.kevin;
 
 public class MenuController {
-    public void showConfig() {
+    public void showConfigPane() {
         Main.showPane("config");
     }
 }
