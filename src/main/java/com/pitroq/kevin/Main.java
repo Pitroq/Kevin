@@ -11,8 +11,19 @@ import java.io.IOException;
 public class Main extends Application {
     private static final BorderPane mainPane = new BorderPane();
 
+    public static void backToMenu() {
+        showPane("menu");
+    }
+
     public static void showPane(String fileName) {
         try {
+            if (!fileName.equals("menu")) {
+                mainPane.setLeft(FXMLLoader.load(Main.class.getResource("layouts/left-bar-view.fxml")));
+            }
+            else {
+                mainPane.setLeft(null);
+            }
+
             mainPane.setCenter(FXMLLoader.load(Main.class.getResource("layouts/" + fileName + "-view.fxml")));
         }
         catch (IOException e) {

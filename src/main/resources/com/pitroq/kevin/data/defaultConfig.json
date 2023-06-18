@@ -1,5 +1,6 @@
 {
   "username": "",
-  "dateFormat": "HH:mm:ss EEEE dd.MM.yyyy",
-  "password": "password123"
+  "date-format": "HH:mm:ss EEEE dd.MM.yyyy",
+  "password": "password123",
+  "browser-home-page": "https://www.google.com"
 }

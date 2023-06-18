@@ -1,6 +1,6 @@
 package com.pitroq.kevin;
 
-public class ConfigController {
+public class LeftBarControler {
     public void backToMenu() {
         Main.backToMenu();
     }

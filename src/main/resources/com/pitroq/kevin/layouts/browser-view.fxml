@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pitroq.kevin.BrowserController">
+    <TextField fx:id="addressBar" onKeyPressed="#getAddress" prefHeight="50.0" prefWidth="1180.0">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </TextField>
+    <WebView fx:id="webView" layoutY="50.0" prefHeight="518.0" prefWidth="1180.0" />
+</AnchorPane>

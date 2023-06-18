@@ -1,10 +1,10 @@
 .menu-item {
-//    -fx-background-color: #f22;
     -fx-background-radius: 5px;
 }
 .menu-item:hover {
     -fx-scale-y: 1.1;
     -fx-scale-x: 1.1;
+    -fx-cursor: hand;
 }
 .menu-item-name {
     -fx-font-size: 26px;

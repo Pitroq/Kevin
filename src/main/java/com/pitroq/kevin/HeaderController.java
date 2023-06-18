@@ -25,7 +25,7 @@ public class HeaderController implements Initializable {
     private void initClock() {
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, actionEvent -> {
             Date date = new Date(System.currentTimeMillis());
-            dateTimeLabel.setText(new SimpleDateFormat(config.get("dateFormat")).format(date));
+            dateTimeLabel.setText(new SimpleDateFormat(config.get("date-format")).format(date));
         }), new KeyFrame(Duration.millis(999)));
 
         clock.setCycleCount(-1);

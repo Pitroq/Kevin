@@ -12,8 +12,10 @@ public class MenuController {
         System.out.println("locking");
         LockScreen lockScreen = new LockScreen();
         lockScreen.createLockScreen();
+    }
 
-
+    public void showBrowserPane() {
+        Main.showPane("browser");
     }
 
 
