@@ -7,3 +7,8 @@
 .root {
     -fx-background-color: -fx-primary-background-color;
 }
+.back-button:hover {
+    -fx-scale-y: 1.1;
+    -fx-scale-x: 1.1;
+    -fx-cursor: hand;
+}

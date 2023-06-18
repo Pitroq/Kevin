@@ -1,4 +1,5 @@
 {
   "username": "",
-  "dateFormat": "HH:mm:ss EEEE dd.MM.yyyy"
+  "dateFormat": "HH:mm:ss EEEE dd.MM.yyyy",
+  "password": "password123"
 }

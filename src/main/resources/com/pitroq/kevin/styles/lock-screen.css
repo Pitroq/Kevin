@@ -1,0 +1,25 @@
+Button {
+    -fx-font-size: 16px;
+    -fx-background-color: #fff;
+    -fx-padding: 8px 12px;
+}
+Button:hover {
+    -fx-background-color: #ddd;
+}
+
+PasswordField {
+    -fx-font-size: 15px;
+    -fx-background-color: #fff;
+}
+
+.info {
+    -fx-font-size: 17px;
+    -fx-padding: 0;
+    -fx-text-fill: #ff2e2e;
+}
+
+.header {
+    -fx-font-size: 35px;
+    -fx-text-fill: -fx-font-color;
+    -fx-padding: 150px 0 0 0;
+}
