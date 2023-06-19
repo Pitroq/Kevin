@@ -2,5 +2,7 @@
   "username": "",
   "date-format": "HH:mm:ss EEEE dd.MM.yyyy",
   "password": "password123",
-  "browser-home-page": "https://www.google.com"
+  "browser-home-page": "https://www.google.com",
+  "browser-zoom": 0.9,
+  "lock-screen-to-front-refresh-rate": 150
 }

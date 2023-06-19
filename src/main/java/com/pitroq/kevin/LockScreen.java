@@ -13,7 +13,9 @@ import java.util.TimerTask;
 
 public class LockScreen {
     private static Stage stage;
-    private static final int sleepTime = 400;
+    private final Config config = new Config();
+    private final int sleepTime = Integer.parseInt(config.get("lock-screen-to-front-refresh-rate"));
+
     private static Timer timer;
 
     private void lockScreenToFrontSchedule() {
@@ -39,7 +41,6 @@ public class LockScreen {
         stage.setScene(scene);
 
         stage.show();
-
         lockScreenToFrontSchedule();
     }
 

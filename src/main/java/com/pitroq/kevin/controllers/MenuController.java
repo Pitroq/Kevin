@@ -1,4 +1,7 @@
-package com.pitroq.kevin;
+package com.pitroq.kevin.controllers;
+
+import com.pitroq.kevin.LockScreen;
+import com.pitroq.kevin.Main;
 
 import java.io.IOException;
 
@@ -9,7 +12,6 @@ public class MenuController {
     }
 
     public void lockComputer() throws IOException {
-        System.out.println("locking");
         LockScreen lockScreen = new LockScreen();
         lockScreen.createLockScreen();
     }

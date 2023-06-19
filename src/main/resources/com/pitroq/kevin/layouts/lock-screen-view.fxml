@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.image.Image?>
@@ -13,11 +12,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="700.0" stylesheets="@../styles/lock-screen.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pitroq.kevin.LockScreenController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="700.0" stylesheets="@../styles/lock-screen.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pitroq.kevin.controllers.LockScreenController">
    <BorderPane prefHeight="200.0" prefWidth="200.0">
        <top>
            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="700.0" BorderPane.alignment="CENTER">
-               <Label alignment="CENTER" layoutY="6.0" prefHeight="50.0" prefWidth="700.0" styleClass="header" text="This computer is secured by K.E.V.I.N." />
+               <Label alignment="CENTER" layoutY="6.0" prefHeight="50.0" prefWidth="700.0" styleClass="header" text="This system is secured by K.E.V.I.N." />
            </AnchorPane>
        </top>
        <center>
@@ -25,16 +24,12 @@
               <ImageView fitWidth="250.0" layoutX="225.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                   <Image url="@../img/lock_icon_high_res.png" />
               </ImageView>
-              <PasswordField fx:id="passwordField" GridPane.rowIndex="2" />
-              <Button contentDisplay="CENTER" layoutX="264.0" layoutY="269.0" mnemonicParsing="false" onAction="#unlockPC" text="Unlock PC" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-              <Label fx:id="infoLabel" alignment="CENTER" layoutY="155.0" prefHeight="17.0" prefWidth="250.0" styleClass="info" textAlignment="CENTER" GridPane.rowIndex="4" />
+              <PasswordField fx:id="passwordField" onKeyPressed="#unlockPC" GridPane.rowIndex="2" />
+              <Label fx:id="infoLabel" alignment="CENTER" layoutY="155.0" prefHeight="17.0" prefWidth="250.0" styleClass="info" textAlignment="CENTER" GridPane.rowIndex="3" />
             <columnConstraints>
                <ColumnConstraints />
             </columnConstraints>
             <rowConstraints>
-               <RowConstraints />
-               <RowConstraints />
-               <RowConstraints />
                <RowConstraints />
                <RowConstraints />
                <RowConstraints />

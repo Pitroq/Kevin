@@ -6,4 +6,6 @@ module com.pitroq.kevin {
 
     opens com.pitroq.kevin to javafx.fxml;
     exports com.pitroq.kevin;
+    exports com.pitroq.kevin.controllers;
+    opens com.pitroq.kevin.controllers to javafx.fxml;
 }

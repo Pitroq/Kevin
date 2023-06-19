@@ -21,7 +21,7 @@ public class Config {
     private final File file = new File(FILE_PATH);
     private Map<String, String> map;
 
-    Config() {
+    public Config() {
         if (!file.exists()) {
             createDirAndFile();
             fillFile();
@@ -96,5 +96,6 @@ public class Config {
 
     public String get(String key) {
         return map.get(key);
+
     }
 }

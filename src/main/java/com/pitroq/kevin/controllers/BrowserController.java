@@ -1,5 +1,6 @@
-package com.pitroq.kevin;
+package com.pitroq.kevin.controllers;
 
+import com.pitroq.kevin.Config;
 import javafx.concurrent.Worker.State;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -7,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
 
 import java.net.URL;
@@ -41,6 +43,9 @@ public class BrowserController implements Initializable{
 
         return url;
     }
+    public void openHomePage() {
+        openPage(HOME_PAGE);
+    }
 
     public void getAddress(KeyEvent key) {
         if (key.getCode().equals(KeyCode.ENTER)) {
@@ -54,6 +59,7 @@ public class BrowserController implements Initializable{
         webEngine = webView.getEngine();
         webEngine.getLoadWorker().stateProperty().addListener((ov, oldState, newState) -> {
             if (webEngine.getLoadWorker().getException() != null && newState == State.FAILED) {
+//                openPage("https://www.google.com/search?q=" + newState);
                 System.out.println(webEngine.getLoadWorker().getException().toString());
             }
 
@@ -61,6 +67,26 @@ public class BrowserController implements Initializable{
                 addressBar.setText(webEngine.getLocation());
             }
         });
-        openPage(HOME_PAGE);
+        openHomePage();
+
+        webView.setZoom(Double.parseDouble(config.get("browser-zoom")));
+    }
+
+    public void openPreviousPage() {
+        WebHistory history = webEngine.getHistory();
+        try {
+            history.go(-1);
+        }
+        catch (IndexOutOfBoundsException ignored) {}
+    }
+
+    public void openNextPage() {
+        WebHistory history = webEngine.getHistory();
+        try {
+            history.go(1);
+        }
+        catch (IndexOutOfBoundsException ignored) {}
     }
 }
+
+// TODO create page in appdata Kevin as home page

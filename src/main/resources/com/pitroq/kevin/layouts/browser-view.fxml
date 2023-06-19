@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pitroq.kevin.BrowserController">
-    <TextField fx:id="addressBar" onKeyPressed="#getAddress" prefHeight="50.0" prefWidth="1180.0">
+<AnchorPane id="browser-pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="1180.0" stylesheets="@../styles/browser.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pitroq.kevin.controllers.BrowserController">
+    <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#openHomePage" pickOnBounds="true" preserveRatio="true" styleClass="browser-menu-item">
+        <Image url="@../img/home_icon.png" />
+    </ImageView>
+    <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="60.0" layoutY="10.0" onMouseClicked="#openPreviousPage" pickOnBounds="true" preserveRatio="true" styleClass="browser-menu-item">
+        <Image url="@../img/black_back_icon.png" />
+    </ImageView>
+    <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="110.0" layoutY="10.0" onMouseClicked="#openNextPage" pickOnBounds="true" preserveRatio="true" styleClass="browser-menu-item">
+        <Image url="@../img/black_next_icon.png" />
+    </ImageView>
+    <TextField fx:id="addressBar" layoutX="150.0" onKeyPressed="#getAddress" prefHeight="50.0" prefWidth="1030.0">
         <font>
             <Font size="15.0" />
         </font>
     </TextField>
     <WebView fx:id="webView" layoutY="50.0" prefHeight="518.0" prefWidth="1180.0" />
+
 </AnchorPane>

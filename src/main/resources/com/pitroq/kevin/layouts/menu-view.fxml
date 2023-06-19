@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 
-<FlowPane hgap="45.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="1280.0" stylesheets="@../styles/menu.css" vgap="60.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pitroq.kevin.MenuController">
+<FlowPane hgap="45.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="1280.0" stylesheets="@../styles/menu.css" vgap="60.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pitroq.kevin.controllers.MenuController">
    <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #3F88C5;" styleClass="menu-item">
       <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="50.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@../img/notepad_icon.png" />
       </ImageView>
       <Label alignment="CENTER" layoutY="155.0" prefHeight="45.0" prefWidth="200.0" styleClass="menu-item-name" text="Notepad" textAlignment="CENTER" />
    </Pane>
-   <Pane onMouseClicked="#showBrowserPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #BD1B2B;" styleClass="menu-item">
+   <Pane onMouseClicked="#showBrowserPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #d41e30;" styleClass="menu-item">
       <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="50.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@../img/browser_icon.png" />
       </ImageView>

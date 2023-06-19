@@ -1,11 +1,11 @@
-package com.pitroq.kevin;
+package com.pitroq.kevin.controllers;
 
+import com.pitroq.kevin.Config;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -19,8 +19,6 @@ public class HeaderController implements Initializable {
     private final Config config = new Config();
     @FXML
     private Label welcomeLabel;
-    @FXML
-    private BorderPane mainPane;
 
     private void initClock() {
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, actionEvent -> {

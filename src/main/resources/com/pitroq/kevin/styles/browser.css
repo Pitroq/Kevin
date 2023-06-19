@@ -1,0 +1,9 @@
+#browser-pane {
+    -fx-background-color: -fx-font-color;
+}
+
+.browser-menu-item:hover {
+   -fx-scale-y: 1.1;
+   -fx-scale-x: 1.1;
+   -fx-cursor: hand;
+}
