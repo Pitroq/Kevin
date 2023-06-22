@@ -15,9 +15,9 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 public class Config {
-    private final String DIR_PATH = System.getenv("appdata") + File.separatorChar + "Kevin";
-    private final String FILE_NAME = "config.json";
-    private final String FILE_PATH = DIR_PATH + File.separatorChar + FILE_NAME;
+    private final String DIR_PATH = System.getenv("appdata") + File.separatorChar + "Kevin"; // extends
+    private final String FILE_NAME = "config.json"; // extends
+    private final String FILE_PATH = DIR_PATH + File.separatorChar + FILE_NAME; // extends
     private final File file = new File(FILE_PATH);
     private Map<String, String> map;
 
@@ -32,7 +32,7 @@ public class Config {
         load();
     }
 
-    private boolean isJsonValid(String json) {
+    private boolean isJsonValid(String json) { // TEST // extends
         try {
             JsonParser.parseString(json);
         }
@@ -58,7 +58,7 @@ public class Config {
         }
     }
 
-    private void createDirAndFile() {
+    private void createDirAndFile() { // extends
         try {
             Path dirPath = Paths.get(DIR_PATH);
             if (!Files.exists(dirPath)) {
@@ -71,7 +71,7 @@ public class Config {
         }
     }
 
-    private void load() {
+    private void load() { // extends
         String fileContent;
 
         try {
@@ -80,7 +80,7 @@ public class Config {
         catch (IOException e) {
             throw new RuntimeException(e);
         }
-
+        // to this lineextends
 
         if (!isJsonValid(fileContent)) {
             fillFile();

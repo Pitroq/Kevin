@@ -28,10 +28,9 @@ public class BrowserController implements Initializable{
     private void openPage(String url) {
         System.out.println(url);
         webEngine.load(url);
-//        addressBar.setText(url);
     }
 
-    private String formatURL(String url) {
+    private String formatURL(String url) { // TEST
         if (!url.contains("http://") & !url.contains("file:/")) {
             if (url.contains("192.168")) {
                 url = "http://" + url;

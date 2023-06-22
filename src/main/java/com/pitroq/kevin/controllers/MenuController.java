@@ -20,5 +20,9 @@ public class MenuController {
         Main.showPane("browser");
     }
 
+    public void showTasksPane() {
+        Main.showPane("tasks");
+    }
+
 
 }

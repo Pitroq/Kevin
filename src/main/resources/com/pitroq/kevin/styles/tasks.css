@@ -1,0 +1,21 @@
+.table-view *.increment-button,
+.table-view *.decrement-button,
+.table-view *.increment-arrow,
+.table-view *.decrement-arrow {
+    -fx-padding: 0;
+    -fx-shape: "";
+}
+
+.table-view .table-cell {
+    -fx-alignment: CENTER;
+}
+
+.table-row-cell {
+    -fx-cell-size: 35px;
+    -fx-font-size: 14px;
+}
+
+.table-view {
+    -fx-font-size: 12px;
+}
+

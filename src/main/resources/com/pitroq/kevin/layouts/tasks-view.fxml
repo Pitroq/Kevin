@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="1180.0" stylesheets="@../styles/tasks.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pitroq.kevin.controllers.TasksController">
+    <AnchorPane prefHeight="568.0" prefWidth="300.0">
+        <TextArea fx:id="taskTextArea" layoutX="50.0" layoutY="110.0" prefHeight="100.0" prefWidth="208.0" promptText="task" wrapText="true" />
+        <Button layoutX="107.0" layoutY="365.0" mnemonicParsing="false" onAction="#addNewTask" text="Add a new task" />
+        <TextField fx:id="deadlineTimeTextField" layoutX="50.0" layoutY="240.0" prefHeight="25.0" prefWidth="70.0" promptText="23:59" text="23:59" />
+        <DatePicker fx:id="deadlineDatePicker" layoutX="128.0" layoutY="240.0" prefHeight="25.0" prefWidth="130.0" />
+    </AnchorPane>
+   <TableView fx:id="tableView" layoutX="350.0" layoutY="50.0" prefHeight="468.0" prefWidth="780.0">
+      <columns>
+         <TableColumn prefWidth="100.0" resizable="false" text="Added date" />
+         <TableColumn prefWidth="429.0" resizable="false" text="Task" />
+         <TableColumn prefWidth="130.0" resizable="false" text="Deadline" />
+         <TableColumn prefWidth="120.0" resizable="false" text="Actions" />
+      </columns>
+   </TableView>
+</AnchorPane>

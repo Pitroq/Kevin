@@ -33,7 +33,7 @@
       </ImageView>
       <Label alignment="CENTER" layoutY="155.0" prefHeight="45.0" prefWidth="200.0" styleClass="menu-item-name" text="Commands" textAlignment="CENTER" />
    </Pane>
-   <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #958A82;" styleClass="menu-item">
+   <Pane onMouseClicked="#showTasksPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #958A82;" styleClass="menu-item">
       <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="50.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@../img/tasks_icon.png" />
       </ImageView>
