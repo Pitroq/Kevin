@@ -56,7 +56,6 @@ public class JsonFileManager {
 
     public String getFileContent() {
         String content = "";
-
         try {
             content = new String(Files.readAllBytes(Paths.get(filePath)));
         }

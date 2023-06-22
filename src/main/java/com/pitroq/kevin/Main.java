@@ -17,14 +17,14 @@ public class Main extends Application {
 
     public static void showPane(String fileName) {
         try {
+            mainPane.setCenter(FXMLLoader.load(Main.class.getResource("layouts/" + fileName + "-view.fxml")));
+
             if (!fileName.equals("menu")) {
                 mainPane.setLeft(FXMLLoader.load(Main.class.getResource("layouts/left-bar-view.fxml")));
             }
             else {
                 mainPane.setLeft(null);
             }
-
-            mainPane.setCenter(FXMLLoader.load(Main.class.getResource("layouts/" + fileName + "-view.fxml")));
         }
         catch (IOException e) {
             throw new RuntimeException(e);

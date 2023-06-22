@@ -28,15 +28,38 @@ public class TasksController implements Initializable {
 
     private final Tasks tasks = new Tasks();
 
-    private void loadTasks() {
+    private void fillTable() {
         ObservableList<TaskRow> taskRows = tasks.getTaskRows();
         tableView.setItems(taskRows);
+    }
+
+    private Button[] initButtons() {
+        Button deleteButton = new Button("Del");
+        deleteButton.setOnAction(this::deleteTask);
+
+        Button updateButton = new Button("Upd");
+        updateButton.setOnAction(this::updateTask);
+
+        return new Button[] { deleteButton, updateButton };
+    }
+
+    private void loadTasksFromFile() {
+        TaskRow[] taskFileRows = tasks.loadTasksFromFile();
+        for (TaskRow taskFileRow : taskFileRows) {
+            String addedDate = taskFileRow.getAddedDate();
+            String taskText = taskFileRow.getTask().getText();
+            String deadlineDate = taskFileRow.getDeadline().getText();
+
+
+            tasks.addTask(addedDate, taskText, deadlineDate, initButtons());
+            fillTable();
+        }
     }
 
     private void deleteTask(ActionEvent event) {
         int id = (int) ((Node) event.getSource()).getUserData();
         tasks.deleteTask(id);
-        loadTasks();
+        fillTable();
     }
 
     private void updateTask(ActionEvent event) {
@@ -45,7 +68,7 @@ public class TasksController implements Initializable {
         TextField taskUpdateField = (TextField) tableView.lookup("#taskUpdateField" + id);
         TextField deadlineUpdateField = (TextField) tableView.lookup("#deadlineUpdateField" + id);
         tasks.updateTask(id, taskUpdateField.getText(), deadlineUpdateField.getText());
-        loadTasks();
+        fillTable();
     }
 
     public void resetForm() {
@@ -84,15 +107,10 @@ public class TasksController implements Initializable {
         catch (NullPointerException e) {
             deadlineDate = "";
         }
-        Button deleteButton = new Button("Del");
-        deleteButton.setOnAction(this::deleteTask);
 
-        Button updateButton = new Button("Upd");
-        updateButton.setOnAction(this::updateTask);
-
-        tasks.addTask(addedDate, taskText, deadlineDate, new Button[] { deleteButton, updateButton });
+        tasks.addTask(addedDate, taskText, deadlineDate, initButtons());
         resetForm();
-        loadTasks();
+        fillTable();
     }
 
     private String columnNameToCamelCase(String name) { // TEST
@@ -108,6 +126,9 @@ public class TasksController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tableView.setSelectionModel(null);
+
+        loadTasksFromFile();
+
         for (var column : tableView.getColumns()) {
             String name = columnNameToCamelCase(column.getText());
             column.setCellValueFactory(new PropertyValueFactory<>(name));
@@ -118,4 +139,5 @@ public class TasksController implements Initializable {
             header.reorderingProperty().addListener((observable, oldValue, newValue) -> header.setReordering(false));
         });
     }
+
 }

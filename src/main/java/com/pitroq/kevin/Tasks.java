@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Map;
 
 
 public class Tasks extends JsonFileManager {
@@ -18,10 +20,19 @@ public class Tasks extends JsonFileManager {
         super("tasks.json");
     }
 
-    private final ObservableList<TaskRow> taskRows = FXCollections.observableArrayList();
+    private ObservableList<TaskRow> taskRows = FXCollections.observableArrayList();
+    private final Type taskRowsType = new TypeToken<ObservableList<TaskRow>>(){}.getType();
+    private Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.PRIVATE).create();
+
 
     public ObservableList<TaskRow> getTaskRows() {
         return taskRows;
+    }
+
+    public TaskRow[] loadTasksFromFile() {
+        String content = getFileContent();
+
+        return gson.fromJson(content, TaskRow[].class);
     }
 
     public void addTask(String addedDate, String taskText, String deadline, Button[] actions) {
@@ -56,12 +67,9 @@ public class Tasks extends JsonFileManager {
             createDirAndFile();
         }
 
-        Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.PRIVATE).create();
 
-        Type type = new TypeToken<ObservableList<TaskRow>>(){}.getType();
-        String json = String.valueOf(gson.toJsonTree(taskRows,type));
+        String json = String.valueOf(gson.toJsonTree(taskRows,taskRowsType));
 
-//        System.out.println(json);
         saveFileContent(json);
     }
 }
