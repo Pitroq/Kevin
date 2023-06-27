@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -35,10 +36,11 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         stage.setTitle("K.E.V.I.N.");
         stage.setResizable(false);
-
+        Font.loadFont(getClass().getResourceAsStream("fonts/WHITRABT.TTF"), 12);
         mainPane.setTop(FXMLLoader.load(getClass().getResource("layouts/header-view.fxml")));
         mainPane.setCenter(FXMLLoader.load(getClass().getResource("layouts/menu-view.fxml")));
         mainPane.setBottom(FXMLLoader.load(getClass().getResource("layouts/footer-view.fxml")));
+        Font.loadFont(getClass().getResourceAsStream("fonts/WHITRABT.TTF"), 10);
 
         Scene scene = new Scene(mainPane);
         scene.getStylesheets().setAll(getClass().getResource("styles/main.css").toExternalForm());

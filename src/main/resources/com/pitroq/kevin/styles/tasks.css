@@ -1,3 +1,7 @@
+* {
+    -fx-font-family: 'Helvetica';
+}
+
 .table-view *.increment-button,
 .table-view *.decrement-button,
 .table-view *.increment-arrow,
@@ -18,4 +22,7 @@
 .table-view {
     -fx-font-size: 12px;
 }
-
+Button {
+    -fx-font-size: 15px;
+//    -fx-font-family: 'Helvetica';
+}

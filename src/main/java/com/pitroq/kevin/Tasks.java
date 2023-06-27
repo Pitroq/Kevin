@@ -9,9 +9,6 @@ import javafx.scene.control.Button;
 
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Map;
-
 
 public class Tasks extends JsonFileManager {
     private int id = 0;
@@ -20,9 +17,9 @@ public class Tasks extends JsonFileManager {
         super("tasks.json");
     }
 
-    private ObservableList<TaskRow> taskRows = FXCollections.observableArrayList();
+    private final ObservableList<TaskRow> taskRows = FXCollections.observableArrayList();
     private final Type taskRowsType = new TypeToken<ObservableList<TaskRow>>(){}.getType();
-    private Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.PRIVATE).create();
+    private final Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.PRIVATE).create();
 
 
     public ObservableList<TaskRow> getTaskRows() {
@@ -66,7 +63,6 @@ public class Tasks extends JsonFileManager {
         if (!file.exists()) {
             createDirAndFile();
         }
-
 
         String json = String.valueOf(gson.toJsonTree(taskRows,taskRowsType));
 

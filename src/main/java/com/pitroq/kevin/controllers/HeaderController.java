@@ -16,9 +16,10 @@ import java.util.ResourceBundle;
 public class HeaderController implements Initializable {
     @FXML
     private Label dateTimeLabel;
-    private final Config config = new Config();
     @FXML
     private Label welcomeLabel;
+
+    private final Config config = new Config();
 
     private void initClock() {
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, actionEvent -> {

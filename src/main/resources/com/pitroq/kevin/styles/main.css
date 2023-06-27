@@ -1,3 +1,7 @@
+@font-face {
+    src: url("../fonts/WHITRABT.TTF");
+}
+
 * {
     -fx-primary-background-color: #1D2025;
     -fx-secondary-background-color: #333B45;
@@ -6,6 +10,8 @@
 }
 .root {
     -fx-background-color: -fx-primary-background-color;
+    -fx-font-family: 'White Rabbit';
+
 }
 .back-button:hover {
     -fx-scale-y: 1.1;

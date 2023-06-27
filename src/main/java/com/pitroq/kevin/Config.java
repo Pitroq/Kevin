@@ -56,6 +56,5 @@ public class Config extends JsonFileManager{
 
     public String get(String key) {
         return map.get(key);
-
     }
 }

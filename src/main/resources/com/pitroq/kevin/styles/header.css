@@ -10,3 +10,7 @@
 #header .headerLogoLabel {
     -fx-font-size: 38px;
 }
+
+.headerLogoLabel {
+    -fx-padding: 0;
+}

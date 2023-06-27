@@ -50,7 +50,6 @@ public class TasksController implements Initializable {
             String taskText = taskFileRow.getTask().getText();
             String deadlineDate = taskFileRow.getDeadline().getText();
 
-
             tasks.addTask(addedDate, taskText, deadlineDate, initButtons());
             fillTable();
         }

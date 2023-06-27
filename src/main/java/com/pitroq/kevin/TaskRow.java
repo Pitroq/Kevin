@@ -61,6 +61,4 @@ public class TaskRow {
     public int getId() {
         return id;
     }
-
-
 }

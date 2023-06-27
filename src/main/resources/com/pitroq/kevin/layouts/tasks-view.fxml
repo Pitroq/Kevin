@@ -11,7 +11,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="1180.0" stylesheets="@../styles/tasks.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pitroq.kevin.controllers.TasksController">
     <AnchorPane prefHeight="568.0" prefWidth="300.0">
         <TextArea fx:id="taskTextArea" layoutX="50.0" layoutY="110.0" prefHeight="100.0" prefWidth="208.0" promptText="task" wrapText="true" />
-        <Button layoutX="107.0" layoutY="365.0" mnemonicParsing="false" onAction="#addNewTask" text="Add a new task" />
+        <Button layoutX="89.0" layoutY="364.0" mnemonicParsing="false" onAction="#addNewTask" text="Add a new task" />
         <TextField fx:id="deadlineTimeTextField" layoutX="50.0" layoutY="240.0" prefHeight="25.0" prefWidth="70.0" promptText="23:59" text="23:59" />
         <DatePicker fx:id="deadlineDatePicker" layoutX="128.0" layoutY="240.0" prefHeight="25.0" prefWidth="130.0" />
     </AnchorPane>

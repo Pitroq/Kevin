@@ -17,7 +17,7 @@
     <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="110.0" layoutY="10.0" onMouseClicked="#openNextPage" pickOnBounds="true" preserveRatio="true" styleClass="browser-menu-item">
         <Image url="@../img/black_next_icon.png" />
     </ImageView>
-    <TextField fx:id="addressBar" layoutX="150.0" onKeyPressed="#getAddress" prefHeight="50.0" prefWidth="1030.0">
+    <TextField fx:id="addressBar" id="addressBar" layoutX="150.0" onKeyPressed="#getAddress" prefHeight="50.0" prefWidth="1030.0">
         <font>
             <Font size="15.0" />
         </font>
