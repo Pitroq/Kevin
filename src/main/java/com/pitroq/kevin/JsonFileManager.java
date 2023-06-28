@@ -35,7 +35,9 @@ public class JsonFileManager {
         }
     }
 
-    public boolean isJsonValid(String json) { // TEST
+    public static boolean isJsonValid(String json) {
+        if (json.isEmpty()) return false;
+
         try {
             JsonParser.parseString(json);
         }

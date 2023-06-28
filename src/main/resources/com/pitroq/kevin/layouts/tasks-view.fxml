@@ -17,10 +17,10 @@
     </AnchorPane>
    <TableView fx:id="tableView" layoutX="350.0" layoutY="50.0" prefHeight="468.0" prefWidth="780.0">
       <columns>
-         <TableColumn prefWidth="100.0" resizable="false" text="Added date" />
-         <TableColumn prefWidth="429.0" resizable="false" text="Task" />
-         <TableColumn prefWidth="130.0" resizable="false" text="Deadline" />
-         <TableColumn prefWidth="120.0" resizable="false" text="Actions" />
+         <TableColumn prefWidth="100.0" resizable="false" sortable="false" text="Added date" />
+         <TableColumn prefWidth="429.0" resizable="false" sortable="false" text="Task" />
+         <TableColumn prefWidth="130.0" resizable="false" sortable="false" text="Deadline" />
+         <TableColumn prefWidth="120.0" resizable="false" sortable="false" text="Actions" />
       </columns>
    </TableView>
 </AnchorPane>

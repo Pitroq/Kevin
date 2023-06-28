@@ -14,7 +14,7 @@ import javafx.scene.web.WebView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class BrowserController implements Initializable{
+public class BrowserController implements Initializable {
     @FXML
     private WebView webView;
     @FXML
@@ -23,14 +23,14 @@ public class BrowserController implements Initializable{
     private WebEngine webEngine;
 
     private final Config config = new Config();
-    private final String HOME_PAGE = config.get("browser-home-page");
+    private final String HOME_PAGE = config.get("browserHomePage");
 
     private void openPage(String url) {
         System.out.println(url);
         webEngine.load(url);
     }
 
-    private String formatURL(String url) { // TEST
+    public static String formatURL(String url) { // TEST
         if (!url.contains("http://") & !url.contains("file:/")) {
             if (url.contains("192.168")) {
                 url = "http://" + url;
@@ -68,7 +68,7 @@ public class BrowserController implements Initializable{
         });
         openHomePage();
 
-        webView.setZoom(Double.parseDouble(config.get("browser-zoom")));
+        webView.setZoom(Double.parseDouble(config.get("browserZoom")));
     }
 
     public void openPreviousPage() {

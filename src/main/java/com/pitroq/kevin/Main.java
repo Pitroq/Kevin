@@ -11,6 +11,7 @@ import java.io.IOException;
 
 public class Main extends Application {
     private static final BorderPane mainPane = new BorderPane();
+    private Config config = new Config();
 
     public static void backToMenu() {
         showPane("menu");
@@ -46,6 +47,11 @@ public class Main extends Application {
         scene.getStylesheets().setAll(getClass().getResource("styles/main.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
+
+        if (Boolean.parseBoolean(config.get("createLockScreenOnStart"))) {
+            LockScreen lockScreen = new LockScreen();
+            lockScreen.createLockScreen();
+        }
     }
 
     public static void main(String[] args) {

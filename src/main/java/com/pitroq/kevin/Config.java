@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 
-public class Config extends JsonFileManager{
+public class Config extends JsonFileManager {
     private Map<String, String> map;
 
     public Config() {
@@ -46,15 +46,17 @@ public class Config extends JsonFileManager{
             fillFileWithDefaultFile();
             load();
             return;
-            // this code reset file if have problems (f.e. lack of bracket)
-            // TODO do warning with question "you have mistake in your settings. do you want to reset settings to default?"
-            // TODO so create class which print excpetions
         }
 
         map = new Gson().fromJson(fileContent, new TypeToken<Map<String, String>>() {}.getType());
     }
 
     public String get(String key) {
+        if (!map.containsKey(key)) {
+            fillFileWithDefaultFile();
+            load();
+        }
+
         return map.get(key);
     }
 }
