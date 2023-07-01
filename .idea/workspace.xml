@@ -77,13 +77,61 @@
       <module name="Kevin.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.pitroq.kevin.controllers.*" />
+          <option name="PATTERN" value="com.pitroq.kevin.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="BrowserControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.pitroq.kevin.controllers.BrowserControllerTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="BrowserControllerTest.formatUrl" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.pitroq.kevin.controllers.BrowserControllerTest.formatUrl&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
+      <method v="2" />
     </configuration>
     <configuration name="JsonFileManagerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -109,7 +157,7 @@
       <ForceTestExec>true</ForceTestExec>
       <method v="2" />
     </configuration>
-    <configuration name="JsonFileManagerTest.isJsonValid" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TasksControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -122,7 +170,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.pitroq.kevin.JsonFileManagerTest.isJsonValid&quot;" />
+            <option value="&quot;com.pitroq.kevin.controllers.TasksControllerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -135,9 +183,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.JsonFileManagerTest" />
-        <item itemvalue="Gradle.JsonFileManagerTest.isJsonValid" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.TasksControllerTest" />
+        <item itemvalue="Gradle.BrowserControllerTest" />
+        <item itemvalue="Gradle.BrowserControllerTest.formatUrl" />
+        <item itemvalue="Gradle.JsonFileManagerTest" />
       </list>
     </recent_temporary>
   </component>

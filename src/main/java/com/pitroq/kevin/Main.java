@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class Main extends Application {
     private static final BorderPane mainPane = new BorderPane();
-    private Config config = new Config();
+    private final Config config = new Config();
 
     public static void backToMenu() {
         showPane("menu");
@@ -21,11 +21,11 @@ public class Main extends Application {
         try {
             mainPane.setCenter(FXMLLoader.load(Main.class.getResource("layouts/" + fileName + "-view.fxml")));
 
-            if (!fileName.equals("menu")) {
-                mainPane.setLeft(FXMLLoader.load(Main.class.getResource("layouts/left-bar-view.fxml")));
+            if (fileName.equals("menu")) {
+                mainPane.setLeft(null);
             }
             else {
-                mainPane.setLeft(null);
+                mainPane.setLeft(FXMLLoader.load(Main.class.getResource("layouts/left-bar-view.fxml")));
             }
         }
         catch (IOException e) {
@@ -37,11 +37,11 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         stage.setTitle("K.E.V.I.N.");
         stage.setResizable(false);
-        Font.loadFont(getClass().getResourceAsStream("fonts/WHITRABT.TTF"), 12);
+//        Font.loadFont(getClass().getResourceAsStream("fonts/WHITRABT.TTF"), 12);
         mainPane.setTop(FXMLLoader.load(getClass().getResource("layouts/header-view.fxml")));
         mainPane.setCenter(FXMLLoader.load(getClass().getResource("layouts/menu-view.fxml")));
         mainPane.setBottom(FXMLLoader.load(getClass().getResource("layouts/footer-view.fxml")));
-        Font.loadFont(getClass().getResourceAsStream("fonts/WHITRABT.TTF"), 10);
+//        Font.loadFont(getClass().getResourceAsStream("fonts/WHITRABT.TTF"), 10);
 
         Scene scene = new Scene(mainPane);
         scene.getStylesheets().setAll(getClass().getResource("styles/main.css").toExternalForm());

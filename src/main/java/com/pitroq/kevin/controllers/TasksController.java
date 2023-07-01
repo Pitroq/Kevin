@@ -51,8 +51,8 @@ public class TasksController implements Initializable {
             String deadlineDate = taskFileRow.getDeadline().getText();
 
             tasks.addTask(addedDate, taskText, deadlineDate, initButtons());
-            fillTable();
         }
+        fillTable();
     }
 
     private void deleteTask(ActionEvent event) {
@@ -112,7 +112,7 @@ public class TasksController implements Initializable {
         fillTable();
     }
 
-    private String columnNameToCamelCase(String name) { // TEST
+    public static String columnNameToCamelCase(String name) {
         StringBuilder result = new StringBuilder();
         for (String word : name.toLowerCase().split(" ")) {
             result.append(word.replaceFirst(".", word.substring(0, 1).toUpperCase()));
@@ -125,7 +125,6 @@ public class TasksController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tableView.setSelectionModel(null);
-
         loadTasksFromFile();
 
         for (var column : tableView.getColumns()) {

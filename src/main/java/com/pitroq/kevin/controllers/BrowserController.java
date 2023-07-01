@@ -30,7 +30,8 @@ public class BrowserController implements Initializable {
         webEngine.load(url);
     }
 
-    public static String formatURL(String url) { // TEST
+    public static String formatURL(String url) {
+        System.out.println("get: " + url);
         if (!url.contains("http://") & !url.contains("file:/")) {
             if (url.contains("192.168")) {
                 url = "http://" + url;
@@ -39,9 +40,10 @@ public class BrowserController implements Initializable {
                 url = "https://" + url;
             }
         }
-
+        System.out.println("returned: " + url);
         return url;
     }
+
     public void openHomePage() {
         openPage(HOME_PAGE);
     }
@@ -58,7 +60,6 @@ public class BrowserController implements Initializable {
         webEngine = webView.getEngine();
         webEngine.getLoadWorker().stateProperty().addListener((ov, oldState, newState) -> {
             if (webEngine.getLoadWorker().getException() != null && newState == State.FAILED) {
-//                openPage("https://www.google.com/search?q=" + newState);
                 System.out.println(webEngine.getLoadWorker().getException().toString());
             }
 
@@ -67,7 +68,6 @@ public class BrowserController implements Initializable {
             }
         });
         openHomePage();
-
         webView.setZoom(Double.parseDouble(config.get("browserZoom")));
     }
 
@@ -87,5 +87,3 @@ public class BrowserController implements Initializable {
         catch (IndexOutOfBoundsException ignored) {}
     }
 }
-
-// TODO create page in appdata Kevin as home page

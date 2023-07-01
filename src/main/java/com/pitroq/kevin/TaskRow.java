@@ -22,13 +22,13 @@ public class TaskRow {
 
     public HBox getActions() {
         HBox hbox = new HBox();
+        hbox.setAlignment(Pos.CENTER);
+        hbox.setSpacing(10);
+
         for (Button action : actions) {
             action.setUserData(id);
             hbox.getChildren().add(action);
         }
-
-        hbox.setAlignment(Pos.CENTER);
-        hbox.setSpacing(10);
 
         return hbox;
     }
@@ -47,6 +47,7 @@ public class TaskRow {
     public TextField getDeadline() {
         TextField textField = new TextField(deadline);
         textField.setId("deadlineUpdateField" + id);
+
         return textField;
     }
 

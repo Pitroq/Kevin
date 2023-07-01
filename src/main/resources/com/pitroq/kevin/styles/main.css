@@ -8,11 +8,13 @@
     -fx-font-color: #E3E4E3;
     -fx-contrast-color: #EFC9A4;
 }
+
 .root {
     -fx-background-color: -fx-primary-background-color;
     -fx-font-family: 'White Rabbit';
 
 }
+
 .back-button:hover {
     -fx-scale-y: 1.1;
     -fx-scale-x: 1.1;

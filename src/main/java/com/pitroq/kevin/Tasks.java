@@ -11,16 +11,14 @@ import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
 
 public class Tasks extends JsonFileManager {
+    private final ObservableList<TaskRow> taskRows = FXCollections.observableArrayList();
+    private final Type taskRowsType = new TypeToken<ObservableList<TaskRow>>(){}.getType();
+    private final Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.PRIVATE).create();
     private int id = 0;
 
     public Tasks() {
         super("tasks.json");
     }
-
-    private final ObservableList<TaskRow> taskRows = FXCollections.observableArrayList();
-    private final Type taskRowsType = new TypeToken<ObservableList<TaskRow>>(){}.getType();
-    private final Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.PRIVATE).create();
-
 
     public ObservableList<TaskRow> getTaskRows() {
         return taskRows;
@@ -63,8 +61,7 @@ public class Tasks extends JsonFileManager {
         if (!file.exists()) {
             createDirAndFile();
         }
-
-        String json = String.valueOf(gson.toJsonTree(taskRows,taskRowsType));
+        String json = String.valueOf(gson.toJsonTree(taskRows, taskRowsType));
 
         saveFileContent(json);
     }

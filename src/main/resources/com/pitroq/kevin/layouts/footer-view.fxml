@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane id="footer" prefHeight="50.0" prefWidth="1280.0" BorderPane.alignment="CENTER" stylesheets="@../styles/footer.css">
-    <Label layoutX="501.0" prefHeight="50.0" prefWidth="279.0" text="Keenly Efficient Virtual Information Navigator" />
+<AnchorPane id="footer" prefHeight="50.0" prefWidth="1280.0" stylesheets="@../styles/footer.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19">
+    <Label alignment="CENTER" prefHeight="50.0" prefWidth="1280.0" text="Keenly Efficient Virtual Information Navigator" />
 </AnchorPane>

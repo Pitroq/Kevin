@@ -3,6 +3,7 @@ Button {
     -fx-background-color: #fff;
     -fx-padding: 8px 12px;
 }
+
 Button:hover {
     -fx-background-color: #ddd;
 }
