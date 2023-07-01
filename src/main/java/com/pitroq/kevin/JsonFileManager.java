@@ -59,7 +59,7 @@ public class JsonFileManager {
     public String getFileContent() {
         String content = "";
         try {
-            content = new String(Files.readAllBytes(Paths.get(filePath)));
+            content = Files.readString(Paths.get(filePath));
         }
         catch (IOException e) {
             throw new RuntimeException(e);

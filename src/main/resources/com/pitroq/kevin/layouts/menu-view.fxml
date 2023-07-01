@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.Pane?>
 
 <FlowPane hgap="45.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="1280.0" stylesheets="@../styles/menu.css" vgap="60.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pitroq.kevin.controllers.MenuController">
-   <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #3F88C5;" styleClass="menu-item">
+   <Pane userData="notes" onMouseClicked="#showPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #3F88C5;" styleClass="menu-item">
       <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="50.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@../img/notepad_icon.png" />
       </ImageView>
-      <Label alignment="CENTER" layoutY="155.0" prefHeight="45.0" prefWidth="200.0" styleClass="menu-item-name" text="Notepad" textAlignment="CENTER" />
+      <Label alignment="CENTER" layoutY="155.0" prefHeight="45.0" prefWidth="200.0" styleClass="menu-item-name" text="Notes" textAlignment="CENTER" />
    </Pane>
-   <Pane onMouseClicked="#showBrowserPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #d41e30;" styleClass="menu-item">
+   <Pane userData="browser" onMouseClicked="#showPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #d41e30;" styleClass="menu-item">
       <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="50.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@../img/browser_icon.png" />
       </ImageView>
@@ -33,7 +33,7 @@
       </ImageView>
       <Label alignment="CENTER" layoutY="155.0" prefHeight="45.0" prefWidth="200.0" styleClass="menu-item-name" text="Commands" textAlignment="CENTER" />
    </Pane>
-   <Pane onMouseClicked="#showTasksPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #958A82;" styleClass="menu-item">
+   <Pane userData="tasks" onMouseClicked="#showPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #958A82;" styleClass="menu-item">
       <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="50.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@../img/tasks_icon.png" />
       </ImageView>
@@ -53,7 +53,7 @@
       </ImageView>
       <Label alignment="CENTER" layoutY="155.0" prefHeight="45.0" prefWidth="200.0" styleClass="menu-item-name" text="Lock PC" textAlignment="CENTER" />
    </Pane>
-   <Pane onMouseClicked="#showConfigPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #B88B67" styleClass="menu-item">
+   <Pane userData="config" onMouseClicked="#showPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #B88B67" styleClass="menu-item">
       <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="50.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@../img/settings_icon.png" />
       </ImageView>

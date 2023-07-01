@@ -1,3 +1,7 @@
+* {
+    -fx-font-family: 'Helvetica';
+}
+
 #browser-pane {
     -fx-background-color: -fx-font-color;
 }
@@ -9,6 +13,5 @@
 }
 
 #addressBar {
-    -fx-font-family: 'Helvetica';
     -fx-font-size: 16px;
 }

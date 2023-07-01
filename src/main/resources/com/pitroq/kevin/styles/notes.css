@@ -1,0 +1,12 @@
+* {
+    -fx-font-family: 'Helvetica';
+}
+
+Button {
+    -fx-font-size: 15px;
+}
+
+#noteTitle {
+    -fx-font-size: 25px;
+    -fx-text-fill: #E3E4E3;
+}
