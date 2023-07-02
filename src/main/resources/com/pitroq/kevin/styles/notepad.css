@@ -1,0 +1,20 @@
+* {
+    -fx-font-family: 'Helvetica';
+}
+
+Button {
+    -fx-font-size: 15px;
+}
+
+#noteTitle {
+    -fx-font-size: 25px;
+}
+.list-cell {
+    -fx-padding: 1px;
+    -fx-pref-height: 40px;
+}
+
+.list-cell Button {
+    -fx-max-height: 40;
+    -fx-max-width: 200;
+}

@@ -26,12 +26,10 @@ public class BrowserController implements Initializable {
     private final String HOME_PAGE = config.get("browserHomePage");
 
     private void openPage(String url) {
-        System.out.println(url);
         webEngine.load(url);
     }
 
     public static String formatURL(String url) {
-        System.out.println("get: " + url);
         if (!url.contains("http://") & !url.contains("file:/")) {
             if (url.contains("192.168")) {
                 url = "http://" + url;
@@ -40,7 +38,6 @@ public class BrowserController implements Initializable {
                 url = "https://" + url;
             }
         }
-        System.out.println("returned: " + url);
         return url;
     }
 

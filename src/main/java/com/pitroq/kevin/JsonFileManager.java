@@ -10,21 +10,29 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class JsonFileManager {
-    protected final String DIR_PATH = System.getenv("appdata") + File.separatorChar + "Kevin";
+public abstract class JsonFileManager {
+    protected String dirPath;
     protected String fileName;
     protected String filePath;
     protected File file;
 
     public JsonFileManager(String fileName) {
         this.fileName = fileName;
-        filePath = DIR_PATH + File.separatorChar + fileName;
+        dirPath = System.getenv("appdata") + File.separatorChar + "Kevin";
+        filePath = dirPath + File.separatorChar + fileName;
+        file = new File(filePath);
+    }
+
+    public JsonFileManager(String fileName, String subfolder) {
+        this.fileName = fileName;
+        dirPath = System.getenv("appdata") + File.separatorChar + "Kevin" + File.separatorChar + subfolder;
+        filePath = dirPath + File.separatorChar + fileName;
         file = new File(filePath);
     }
 
     public void createDirAndFile() {
         try {
-            Path dirPath = Paths.get(DIR_PATH);
+            Path dirPath = Paths.get(this.dirPath);
             if (!Files.exists(dirPath)) {
                 Files.createDirectory(dirPath);
             }

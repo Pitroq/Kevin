@@ -44,11 +44,11 @@ public class TasksController implements Initializable {
     }
 
     private void loadTasksFromFile() {
-        TaskRow[] taskFileRows = tasks.loadTasksFromFile();
-        for (TaskRow taskFileRow : taskFileRows) {
-            String addedDate = taskFileRow.getAddedDate();
-            String taskText = taskFileRow.getTask().getText();
-            String deadlineDate = taskFileRow.getDeadline().getText();
+        TaskRow[] fileTaskRows = tasks.loadTasksFromFile();
+        for (TaskRow fileTaskRow : fileTaskRows) {
+            String addedDate = fileTaskRow.getAddedDate();
+            String taskText = fileTaskRow.getTask().getText();
+            String deadlineDate = fileTaskRow.getDeadline().getText();
 
             tasks.addTask(addedDate, taskText, deadlineDate, initButtons());
         }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="1180.0" stylesheets="@../styles/notepad.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pitroq.kevin.controllers.NotepadController">
+   <ListView fx:id="notesListView" layoutX="14.0" layoutY="14.0" prefHeight="444.0" prefWidth="200.0" />
+   <Button layoutX="14.0" layoutY="473.0" mnemonicParsing="false" onAction="#createNewNote" prefHeight="25.0" prefWidth="200.0" text="Create new note" />
+   <Button onAction="#sendNotepadToDB" layoutX="14.0" layoutY="522.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Send to database" />
+   <AnchorPane fx:id="notePane" layoutX="243.0" layoutY="14.0" prefHeight="540.0" prefWidth="909.0">
+      <TextField id="noteTitle" fx:id="noteTitle" layoutY="-2.0" prefHeight="60.0" prefWidth="909.0" />
+      <TextArea fx:id="noteContent" layoutY="70.0" prefHeight="423.0" prefWidth="909.0" />
+      <Button layoutX="495.0" layoutY="508.0" mnemonicParsing="false" onAction="#deleteNote" prefHeight="25.0" prefWidth="200.0" text="Delete" />
+      <Button layoutX="709.0" layoutY="508.0" mnemonicParsing="false" onAction="#updateNote" prefHeight="25.0" prefWidth="200.0" text="Update" />
+   </AnchorPane>
+</AnchorPane>

@@ -3,9 +3,10 @@ module com.pitroq.kevin {
     requires javafx.fxml;
     requires com.google.gson;
     requires javafx.web;
+    requires java.sql;
 
     opens com.pitroq.kevin to javafx.fxml;
+    opens com.pitroq.kevin.controllers to javafx.fxml;
     exports com.pitroq.kevin;
     exports com.pitroq.kevin.controllers;
-    opens com.pitroq.kevin.controllers to javafx.fxml;
 }
