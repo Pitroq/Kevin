@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
+import java.sql.SQLException;
 
 public class Notepad extends JsonFileManager {
     private final ObservableList<Note> notes = FXCollections.observableArrayList();
@@ -29,7 +30,7 @@ public class Notepad extends JsonFileManager {
         saveToFile();
     }
 
-    private void saveToFile() {
+    public void saveToFile() {
         if (!file.exists()) {
             createDirAndFile();
         }
@@ -76,6 +77,17 @@ public class Notepad extends JsonFileManager {
             }
         }
         saveToFile();
+    }
+
+    public void sendNotepadToDB() {
+        try {
+            Database database = new Database().connect();
+            database.sendQuery("INSERT INTO notepad VALUES(null, now(), '" + getFileContent() + "');");
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        database.close();
     }
 }
 
