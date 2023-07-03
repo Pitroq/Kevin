@@ -80,9 +80,11 @@ public class Notepad extends JsonFileManager {
     }
 
     public void sendNotepadToDB() {
+        Database database;
         try {
-            Database database = new Database().connect();
+            database = new Database().connect();
             database.sendQuery("INSERT INTO notepad VALUES(null, now(), '" + getFileContent() + "');");
+
         }
         catch (SQLException e) {
             throw new RuntimeException(e);
