@@ -6,7 +6,7 @@ Button {
     -fx-font-size: 15px;
 }
 
-#noteTitle {
+#note-title {
     -fx-font-size: 25px;
 }
 .list-cell {
@@ -17,4 +17,9 @@ Button {
 .list-cell Button {
     -fx-max-height: 40;
     -fx-max-width: 200;
+}
+
+#open-note-label {
+    -fx-text-fill: -fx-font-color;
+    -fx-font-size: 22px;
 }

@@ -1,9 +1,13 @@
 {
   "username": "",
   "dateFormat": "HH:mm:ss EEEE dd.MM.yyyy",
-  "password": "password123",
+  "lockScreenPassword": "password123",
   "browserHomePage": "https://www.google.com",
   "browserZoom": 0.9,
   "lockScreenToFrontRefreshRate": 150,
-  "createLockScreenOnStart": true
+  "createLockScreenOnStart": true,
+  "databaseUser": "root",
+  "databasePassword": "",
+  "databaseHost": "localhost",
+  "databaseName": "kevin"
 }

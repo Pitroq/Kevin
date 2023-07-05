@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Notepad extends JsonFileManager {
@@ -39,14 +40,19 @@ public class Notepad extends JsonFileManager {
         saveFileContent(json);
     }
 
-    public void loadNotesFromFile() {
-        String content = getFileContent();
+    private void fillNotes(String content) {
         Note[] fileNotes = gson.fromJson(content, Note[].class);
         for (Note fileNote : fileNotes) {
             String title = fileNote.getTitle();
             String noteContent = fileNote.getNoteContent();
             addNote(title, noteContent);
         }
+    }
+
+    public void loadNotesFromFile() {
+        notes.clear();
+        String content = getFileContent();
+        fillNotes(content);
     }
 
     public Note getNote(int id) {
@@ -89,6 +95,24 @@ public class Notepad extends JsonFileManager {
         catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        database.close();
+    }
+
+    public void loadNotepadFromDB() {
+        Database database;
+        String databaseNotepadContent = null;
+        try {
+            database = new Database().connect();
+            ResultSet resultSet = database.sendQueryWithResult("SELECT notepadJSON FROM notepad ORDER BY sendDate DESC LIMIT 1");
+            if (resultSet.next()) {
+                notes.clear();
+                databaseNotepadContent = resultSet.getString("notepadJSON");
+            }
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        fillNotes(databaseNotepadContent);
         database.close();
     }
 }

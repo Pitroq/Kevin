@@ -9,8 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Window;
-import javafx.stage.WindowEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -76,8 +74,13 @@ public class NotepadController implements Initializable {
         fillList();
     }
 
-    public void saveAndSendNotepadToDB(ActionEvent event) {
-        notepad.saveToFile();
+    public void sendNotepadToDB(ActionEvent event) {
         notepad.sendNotepadToDB();
+    }
+
+    public void loadNotepadFromDB(ActionEvent event) {
+        notepad.loadNotepadFromDB();
+        fillList();
+        notePane.setVisible(false);
     }
 }

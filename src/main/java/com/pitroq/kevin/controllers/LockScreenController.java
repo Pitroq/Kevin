@@ -18,7 +18,7 @@ public class LockScreenController {
 
     public void unlockPC(KeyEvent key) {
         if (key.getCode().equals(KeyCode.ENTER)) {
-            if (passwordField.getText().equals(config.get("password"))) {
+            if (passwordField.getText().equals(config.get("lockScreenPassword"))) {
                 LockScreen.closeLockScreen();
             }
             else {
