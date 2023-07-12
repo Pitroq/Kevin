@@ -16,6 +16,7 @@ public class Database {
     public void sendQuery(String query) throws SQLException {
         Statement statement = connect.createStatement();
         statement.execute(query);
+        statement.close();
     }
 
     public void close() {
@@ -29,6 +30,8 @@ public class Database {
 
     public ResultSet sendQueryWithResult(String query) throws SQLException {
         Statement statement = connect.createStatement();
-        return statement.executeQuery(query);
+        ResultSet resultSet = statement.executeQuery(query);
+//        statement.close();
+        return resultSet;
     }
 }

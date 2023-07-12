@@ -89,8 +89,9 @@ public class Notepad extends JsonFileManager {
         Database database;
         try {
             database = new Database().connect();
-            database.sendQuery("INSERT INTO notepad VALUES(null, now(), '" + getFileContent() + "');");
-
+            String query = "INSERT INTO notepad VALUES(null, now(), '" + getFileContent() + "');";
+            query = query.replace("\\n", "{enter}");
+            database.sendQuery(query);
         }
         catch (SQLException e) {
             throw new RuntimeException(e);
@@ -106,8 +107,12 @@ public class Notepad extends JsonFileManager {
             ResultSet resultSet = database.sendQueryWithResult("SELECT notepadJSON FROM notepad ORDER BY sendDate DESC LIMIT 1");
             if (resultSet.next()) {
                 notes.clear();
-                databaseNotepadContent = resultSet.getString("notepadJSON");
+
+                String result = resultSet.getString("notepadJSON");
+                result = result.replace("{enter}", "\\n");
+                databaseNotepadContent = result;
             }
+
         }
         catch (SQLException e) {
             throw new RuntimeException(e);

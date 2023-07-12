@@ -22,5 +22,4 @@
       <Button layoutX="495.0" layoutY="508.0" mnemonicParsing="false" onAction="#deleteNote" prefHeight="25.0" prefWidth="200.0" text="Delete" />
       <Button layoutX="709.0" layoutY="508.0" mnemonicParsing="false" onAction="#updateNote" prefHeight="25.0" prefWidth="200.0" text="Update" />
    </AnchorPane>
-
 </AnchorPane>
