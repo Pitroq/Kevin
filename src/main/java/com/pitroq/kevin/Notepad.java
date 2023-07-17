@@ -109,7 +109,7 @@ public class Notepad extends JsonFileManager {
                 notes.clear();
 
                 String result = resultSet.getString("notepadJSON");
-                result = result.replace("{enter}", "\\n");
+                result = result.replace("{enter}", "\n");
                 databaseNotepadContent = result;
             }
 

@@ -9,6 +9,11 @@ Button {
 #note-title {
     -fx-font-size: 25px;
 }
+
+#note-content {
+    -fx-font-size: 18px;
+}
+
 .list-cell {
     -fx-padding: 1px;
     -fx-pref-height: 40px;

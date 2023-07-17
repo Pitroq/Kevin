@@ -1,0 +1,17 @@
+* {
+    -fx-font-family: 'Helvetica';
+}
+
+#new-command-text-field, #add-new-command-button {
+    -fx-font-size: 16px;
+}
+
+.list-cell {
+    -fx-padding: 1px;
+    -fx-pref-height: 40px;
+    -fx-font-size: 16px;
+}
+
+.list-cell TextField {
+    -fx-pref-width: 890px;
+}

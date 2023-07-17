@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="1180.0" stylesheets="@../styles/commands.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pitroq.kevin.controllers.CommandsController">
+   <TextField fx:id="newCommandTextField" id="new-command-text-field" layoutX="25.0" layoutY="25.0" prefHeight="46.0" prefWidth="930.0" />
+   <Button id="add-new-command-button" layoutX="980.0" layoutY="25.0" mnemonicParsing="false" onAction="#createNewCommand" prefHeight="46.0" prefWidth="175.0" text="Add new command" />
+   <ListView fx:id="commandsListView" layoutX="25.0" layoutY="96.0" prefHeight="447.0" prefWidth="1130.0" />
+</AnchorPane>
