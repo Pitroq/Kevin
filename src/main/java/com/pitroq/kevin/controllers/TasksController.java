@@ -55,12 +55,14 @@ public class TasksController implements Initializable {
         fillTable();
     }
 
+    @FXML
     private void deleteTask(ActionEvent event) {
         int id = (int) ((Node) event.getSource()).getUserData();
         tasks.deleteTask(id);
         fillTable();
     }
 
+    @FXML
     private void updateTask(ActionEvent event) {
         int id = (int) ((Node) event.getSource()).getUserData();
 
@@ -93,8 +95,11 @@ public class TasksController implements Initializable {
         return !taskTextArea.getText().isEmpty() & isDeadlineDateCorrect();
     }
 
-    public void addNewTask() {
-        if (!isFormCorrect()) return;
+    @FXML
+    private void addNewTask() {
+        if (!isFormCorrect()) {
+            return;
+        }
 
         String taskText = taskTextArea.getText();
         String addedDate = (new SimpleDateFormat("HH:mm dd.MM.YY").format(System.currentTimeMillis()));
@@ -137,5 +142,4 @@ public class TasksController implements Initializable {
             header.reorderingProperty().addListener((observable, oldValue, newValue) -> header.setReordering(false));
         });
     }
-
 }

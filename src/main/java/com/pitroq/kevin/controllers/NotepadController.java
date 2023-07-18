@@ -25,7 +25,8 @@ public class NotepadController implements Initializable {
 
     private final Notepad notepad = new Notepad();
 
-    public void loadNote(ActionEvent event) {
+    @FXML
+    private void loadNote(ActionEvent event) {
         int id = (int) ((Node) event.getSource()).getUserData();
         Note note = notepad.getNote(id);
         notePane.setUserData(note.getId());
@@ -34,7 +35,8 @@ public class NotepadController implements Initializable {
         notePane.setVisible(true);
     }
 
-    public void createNewNote(ActionEvent event) {
+    @FXML
+    private void createNewNote() {
         notepad.addNote("Untitled note", "");
         fillList();
     }
@@ -57,7 +59,8 @@ public class NotepadController implements Initializable {
         }
     }
 
-    public void deleteNote(ActionEvent event) {
+    @FXML
+    private void deleteNote(ActionEvent event) {
         int id = (int) ((Node) event.getSource()).getParent().getUserData();
         notepad.deleteNote(id);
         fillList();
@@ -65,7 +68,8 @@ public class NotepadController implements Initializable {
         notePane.setVisible(false);
     }
 
-    public void updateNote(ActionEvent event) {
+    @FXML
+    private void updateNote(ActionEvent event) {
         int id = (int) ((Node) event.getSource()).getParent().getUserData();
         String title = noteTitle.getText();
         String content = noteContent.getText();
@@ -74,11 +78,13 @@ public class NotepadController implements Initializable {
         fillList();
     }
 
-    public void sendNotepadToDB(ActionEvent event) {
+    @FXML
+    private void sendNotepadToDB() {
         notepad.sendNotepadToDB();
     }
 
-    public void loadNotepadFromDB(ActionEvent event) {
+    @FXML
+    private void loadNotepadFromDB() {
         notepad.loadNotepadFromDB();
         fillList();
         notePane.setVisible(false);

@@ -41,11 +41,13 @@ public class BrowserController implements Initializable {
         return url;
     }
 
-    public void openHomePage() {
+    @FXML
+    private void openHomePage() {
         openPage(HOME_PAGE);
     }
 
-    public void getAddress(KeyEvent key) {
+    @FXML
+    private void getAddress(KeyEvent key) {
         if (key.getCode().equals(KeyCode.ENTER)) {
             String url = formatURL(addressBar.getText());
             openPage(url);
@@ -59,7 +61,6 @@ public class BrowserController implements Initializable {
             if (webEngine.getLoadWorker().getException() != null && newState == State.FAILED) {
                 System.out.println(webEngine.getLoadWorker().getException().toString());
             }
-
             if (newState == State.SUCCEEDED) {
                 addressBar.setText(webEngine.getLocation());
             }
@@ -68,7 +69,8 @@ public class BrowserController implements Initializable {
         webView.setZoom(Double.parseDouble(config.get("browserZoom")));
     }
 
-    public void openPreviousPage() {
+    @FXML
+    private void openPreviousPage() {
         WebHistory history = webEngine.getHistory();
         try {
             history.go(-1);
@@ -76,7 +78,8 @@ public class BrowserController implements Initializable {
         catch (IndexOutOfBoundsException ignored) {}
     }
 
-    public void openNextPage() {
+    @FXML
+    private void openNextPage() {
         WebHistory history = webEngine.getHistory();
         try {
             history.go(1);

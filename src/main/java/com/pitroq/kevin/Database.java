@@ -30,8 +30,6 @@ public class Database {
 
     public ResultSet sendQueryWithResult(String query) throws SQLException {
         Statement statement = connect.createStatement();
-        ResultSet resultSet = statement.executeQuery(query);
-//        statement.close();
-        return resultSet;
+        return statement.executeQuery(query);
     }
 }

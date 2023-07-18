@@ -12,64 +12,62 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Logger;
 
 public class CommandsController  implements Initializable {
-    public TextField newCommandTextField;
+    @FXML
+    private TextField newCommandTextField;
     @FXML
     private ListView<HBox> commandsListView;
 
-
     private final Commands commands = new Commands();
-
 
     private Button[] initButtons() {
         Button deleteButton = new Button("Delete");
-        Button updateButton = new Button("Update");
-        Button runButton = new Button("Run");
-
         deleteButton.setOnAction(this::deleteCommand);
+
+        Button updateButton = new Button("Update");
         updateButton.setOnAction(this::updateCommand);
+
+        Button runButton = new Button("Run");
         runButton.setOnAction(this::runCommand);
 
         return new Button[] { deleteButton, updateButton, runButton };
     }
 
+    @FXML
     private void updateCommand(ActionEvent event) {
         int id = (int) ((Node) event.getSource()).getUserData();
 
         TextField updateTextField = (TextField) commandsListView.lookup("#commandUpdateField" + id);
         String newCommandContent = updateTextField.getText();
-        System.out.println(newCommandContent);
         commands.updateCommand(id, newCommandContent);
         fillList();
     }
 
+    @FXML
     private void deleteCommand(ActionEvent event) {
         int id = (int) ((Node) event.getSource()).getUserData();
         commands.deleteCommand(id);
         fillList();
     }
 
+    @FXML
     private void runCommand(ActionEvent event) {
         int id = (int) ((Node) event.getSource()).getUserData();
         String command = commands.getCommand(id).getContent();
 
         try {
-            Runtime.getRuntime().exec("cmd /k start /SEPARATE /I " + command);
+            Runtime.getRuntime().exec("cmd.exe /k start cmd /k " + command);
         }
-        catch (IOException e) {
-            System.out.println(e);
-        }
+        catch (IOException ignore) {}
     }
 
-    public void createNewCommand() {
+    @FXML
+    private void createNewCommand() {
         if (newCommandTextField.getText().isEmpty()) {
             return;
         }
