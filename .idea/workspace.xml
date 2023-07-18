@@ -173,8 +173,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.mysql-connector-j-8.0.33.jar" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JAR Application.mysql-connector-j-8.0.33.jar" />
         <item itemvalue="Gradle.TasksControllerTest" />
         <item itemvalue="Gradle.BrowserControllerTest" />
         <item itemvalue="Gradle.BrowserControllerTest.formatUrl" />

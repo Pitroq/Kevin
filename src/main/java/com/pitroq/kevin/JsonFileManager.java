@@ -11,9 +11,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public abstract class JsonFileManager {
-    protected String dirPath;
+    public String dirPath;
     protected String fileName;
-    protected String filePath;
+    public String filePath;
     protected File file;
 
     public JsonFileManager(String fileName) {
