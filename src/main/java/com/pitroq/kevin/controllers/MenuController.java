@@ -25,9 +25,9 @@ public class MenuController {
 
     @FXML
     private void openConfigExplorerDir() {
-        Desktop desktop = Desktop.getDesktop();
         try {
-            desktop.open(new File(new Config().filePath));
+            Config config = new Config();
+            Desktop.getDesktop().open(new File(config.filePath));
         }
         catch (IOException e) {
             throw new RuntimeException(e);
