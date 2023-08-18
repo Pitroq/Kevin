@@ -6,8 +6,16 @@ import com.google.gson.reflect.TypeToken;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
+import java.net.HttpURLConnection;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -16,6 +24,10 @@ public class Notepad extends JsonFileManager {
     private final Type notesType = new TypeToken<ObservableList<Note>>(){}.getType();
     private final Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.PRIVATE).create();
     private int id = 0;
+    private Config config = new Config();
+
+    private final String API_URL = config.get("API_URL");
+    private final String API_KEY = config.get("API_KEY");
 
     public Notepad() {
         super("notes.json");
@@ -85,40 +97,52 @@ public class Notepad extends JsonFileManager {
         saveToFile();
     }
 
-    public void sendNotepadToDB() {
-        Database database;
-        try {
-            database = new Database().connect();
-            String query = "INSERT INTO notepad VALUES(null, now(), '" + getFileContent() + "');";
-            query = query.replace("\\n", "{enter}");
-            database.sendQuery(query);
+    public void sendNotepadToDB() throws IOException {
+        URL url = new URL(API_URL + "sendNotepadJSON.php");
+        HttpURLConnection con= (HttpURLConnection) url.openConnection();
+        con.setDoOutput(true);
+        con.setRequestMethod("POST");
+        con.setRequestProperty("charset", "utf-8");
+
+        String urlParameters = "api_key=" + API_KEY + "&notepadJSON=" + getFileContent().replace("\\n", "{enter}");
+//        System.out.println(urlParameters);
+        byte[] postData = urlParameters.getBytes( StandardCharsets.UTF_8 );
+        con.setRequestProperty("Content-Length", Integer.toString(postData.length));
+        try (DataOutputStream wr = new DataOutputStream( con.getOutputStream())) {
+            wr.write(postData);
         }
-        catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        database.close();
+
+        con.getInputStream();
     }
 
-    public void loadNotepadFromDB() {
-        Database database;
-        String databaseNotepadContent = null;
-        try {
-            database = new Database().connect();
-            ResultSet resultSet = database.sendQueryWithResult("SELECT notepadJSON FROM notepad ORDER BY sendDate DESC LIMIT 1");
-            if (resultSet.next()) {
-                notes.clear();
+    public void loadNotepadFromDB() throws IOException {
+        URL url = new URL(API_URL + "getLatestNotepadJSON.php");
+        HttpURLConnection con= (HttpURLConnection) url.openConnection();
+        con.setDoOutput(true);
+        con.setRequestMethod("POST");
+        con.setRequestProperty("charset", "utf-8");
 
-                String result = resultSet.getString("notepadJSON");
-                result = result.replace("{enter}", "\n");
-                databaseNotepadContent = result;
+        String urlParameters = "api_key=" + API_KEY;
+        byte[] postData = urlParameters.getBytes( StandardCharsets.UTF_8 );
+        con.setRequestProperty("Content-Length", Integer.toString(postData.length));
+        try (DataOutputStream wr = new DataOutputStream(con.getOutputStream())) {
+            wr.write(postData);
+        }
+
+        try (BufferedReader br = new BufferedReader (
+                new InputStreamReader(con.getInputStream(), StandardCharsets.UTF_8))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim());
+
             }
+            String stringResponse = String.valueOf(response);
+            stringResponse = stringResponse.replace("{enter}", "\n");
+            notes.clear();
+            fillNotes(stringResponse);
 
         }
-        catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        fillNotes(databaseNotepadContent);
-        database.close();
     }
 }
 

@@ -6,8 +6,6 @@
   "browserZoom": 0.9,
   "lockScreenToFrontRefreshRate": 150,
   "createLockScreenOnStart": true,
-  "databaseUser": "root",
-  "databasePassword": "",
-  "databaseHost": "localhost",
-  "databaseName": "kevin"
+  "API_KEY": "123098321890",
+  "API_URL": "http://192.168.1.40:8080/kevin/api/"
 }

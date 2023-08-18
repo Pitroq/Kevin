@@ -1,0 +1,7 @@
+//* {
+//    -fx-font-family: 'Helvetica';
+//}
+
+Label {
+    -fx-text-fill: -fx-font-color;
+}

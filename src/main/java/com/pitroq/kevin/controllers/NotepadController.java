@@ -10,7 +10,12 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
+
+import java.io.*;
+import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 import java.util.ResourceBundle;
 
 public class NotepadController implements Initializable {
@@ -24,6 +29,7 @@ public class NotepadController implements Initializable {
     private TextField noteTitle;
 
     private final Notepad notepad = new Notepad();
+
 
     @FXML
     private void loadNote(ActionEvent event) {
@@ -80,12 +86,22 @@ public class NotepadController implements Initializable {
 
     @FXML
     private void sendNotepadToDB() {
-        notepad.sendNotepadToDB();
+        try {
+            notepad.sendNotepadToDB();
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
     private void loadNotepadFromDB() {
-        notepad.loadNotepadFromDB();
+        try {
+            notepad.loadNotepadFromDB();
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         fillList();
         notePane.setVisible(false);
     }
